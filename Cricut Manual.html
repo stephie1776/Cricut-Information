@@ -1,0 +1,1729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Procreate-to-Cricut Workbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Mulish:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FCFAF6;
+    --ink:#2B2733;
+    --ink-soft:#5E5868;
+    --berry:#C4456B;
+    --berry-deep:#9E2F52;
+    --teal:#2F8F83;
+    --butter:#FBE9C7;
+    --butter-line:#E7B45A;
+    --line:#E4DED3;
+    --line-strong:#D2C9BA;
+    /* functional Cricut mat color system */
+    --mat-blue:#3E92C4;   /* LightGrip */
+    --mat-green:#3F9E6E;  /* StandardGrip */
+    --mat-purple:#6E54A0; /* StrongGrip */
+    --mat-pink:#E07BA6;   /* FabricGrip */
+  }
+
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:#EDE7DC;
+    color:var(--ink);
+    font-family:'Mulish',system-ui,sans-serif;
+    font-size:17px;
+    line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* ---------- PAGE SYSTEM ---------- */
+  .page{
+    position:relative;
+    width:8.5in;
+    min-height:11in;
+    margin:24px auto;
+    padding:0.85in 0.9in 0.95in;
+    background:var(--paper);
+    box-shadow:0 10px 30px rgba(43,39,51,.16);
+    overflow:hidden;
+  }
+  .page::before{ /* hairline inner frame */
+    content:"";
+    position:absolute;
+    inset:0.45in;
+    border:1px solid var(--line);
+    pointer-events:none;
+  }
+  .page > *{position:relative;}
+
+  /* ---------- TYPE ---------- */
+  h1,h2,h3,h4{font-family:'Fraunces',serif;line-height:1.08;margin:0;font-weight:600;}
+  .eyebrow{
+    font-family:'Space Mono',monospace;
+    font-size:12px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--berry);
+    margin:0 0 10px;
+  }
+  p{margin:0 0 14px;}
+  a{color:var(--berry-deep);}
+  strong{font-weight:800;color:var(--ink);}
+  .lead{font-size:19px;color:var(--ink-soft);}
+
+  /* ---------- COVER ---------- */
+  .cover{
+    background:
+      radial-gradient(120% 80% at 80% -10%, rgba(196,69,107,.10), transparent 60%),
+      radial-gradient(100% 70% at -10% 110%, rgba(47,143,131,.10), transparent 55%),
+      var(--paper);
+    display:flex;
+    flex-direction:column;
+  }
+  .cover::before{border-color:var(--line-strong);}
+  .cover .kicker{
+    font-family:'Space Mono',monospace;
+    text-transform:uppercase;
+    letter-spacing:.32em;
+    font-size:12px;
+    color:var(--teal);
+  }
+  .cover h1{
+    font-size:74px;
+    font-weight:600;
+    letter-spacing:-.015em;
+    margin:.18em 0 .1em;
+  }
+  .cover h1 em{font-style:italic;color:var(--berry);font-weight:500;}
+  .cover .sub{
+    font-size:21px;
+    color:var(--ink-soft);
+    max-width:26ch;
+    font-weight:500;
+  }
+  .cover-art{margin:26px 0 auto;}
+  .cover-foot{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    border-top:2px solid var(--ink);
+    padding-top:14px;
+    font-family:'Space Mono',monospace;
+    font-size:12.5px;
+    letter-spacing:.04em;
+    color:var(--ink-soft);
+  }
+  .badge{
+    display:inline-block;
+    border:1.5px solid var(--berry);
+    color:var(--berry-deep);
+    border-radius:999px;
+    padding:5px 14px;
+    font-family:'Space Mono',monospace;
+    font-size:11px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+  }
+
+  /* ---------- SECTION HEADERS ---------- */
+  .sec-head{
+    display:flex;
+    align-items:flex-end;
+    gap:20px;
+    border-bottom:3px solid var(--ink);
+    padding-bottom:16px;
+    margin-bottom:26px;
+  }
+  .sec-num{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:62px;
+    line-height:.8;
+    color:var(--paper);
+    background:var(--berry);
+    width:84px;height:84px;
+    flex:0 0 84px;
+    display:flex;align-items:center;justify-content:center;
+    border-radius:14px;
+    box-shadow:3px 3px 0 var(--berry-deep);
+  }
+  .sec-head .titles{flex:1;}
+  .sec-head h2{font-size:34px;font-weight:600;letter-spacing:-.01em;}
+  .sec-head .eyebrow{margin-bottom:6px;}
+
+  h3{
+    font-size:23px;
+    margin:30px 0 10px;
+    color:var(--ink);
+    display:flex;align-items:center;gap:10px;
+  }
+  h3::before{
+    content:"";
+    width:14px;height:14px;border-radius:3px;
+    background:var(--teal);
+    flex:0 0 auto;
+    transform:rotate(45deg);
+  }
+  h4{font-size:18px;margin:18px 0 6px;font-weight:600;}
+
+  ul,ol{margin:0 0 16px;padding-left:1.25em;}
+  li{margin-bottom:7px;}
+  ul.tight li{margin-bottom:3px;}
+
+  /* ---------- CALLOUT: STEPHANIE'S TIPS ---------- */
+  .tip{
+    position:relative;
+    background:var(--butter);
+    border:1.5px solid var(--butter-line);
+    border-radius:10px;
+    padding:18px 20px 16px 22px;
+    margin:22px 0;
+    box-shadow:3px 4px 0 rgba(231,180,90,.35);
+  }
+  .tip::before{
+    content:"";
+    position:absolute;
+    left:0;top:14px;bottom:14px;
+    width:5px;border-radius:5px;
+    background:var(--berry);
+  }
+  .tip .tip-label{
+    font-family:'Space Mono',monospace;
+    text-transform:uppercase;
+    letter-spacing:.14em;
+    font-size:11.5px;
+    font-weight:700;
+    color:var(--berry-deep);
+    display:flex;align-items:center;gap:8px;
+    margin-bottom:6px;
+  }
+  .tip .tip-label svg{flex:0 0 auto;}
+  .tip p{margin:0;font-size:15.5px;color:#5a4a28;}
+  .tip p + p{margin-top:8px;}
+
+  /* ---------- CHECKLIST ---------- */
+  .checklist{
+    border:2px solid var(--ink);
+    border-radius:12px;
+    padding:18px 22px 20px;
+    margin:24px 0;
+    background:#fff;
+  }
+  .checklist .cl-head{
+    font-family:'Space Mono',monospace;
+    text-transform:uppercase;
+    letter-spacing:.16em;
+    font-size:12px;
+    color:var(--teal);
+    font-weight:700;
+    display:flex;align-items:center;gap:9px;
+    margin-bottom:14px;
+  }
+  .checklist ul{list-style:none;margin:0;padding:0;}
+  .checklist li{
+    display:flex;align-items:flex-start;gap:12px;
+    padding:7px 0;
+    border-bottom:1px dotted var(--line-strong);
+    font-size:15.5px;
+    margin:0;
+  }
+  .checklist li:last-child{border-bottom:none;}
+  .checklist .box{
+    flex:0 0 auto;
+    width:20px;height:20px;
+    border:2px solid var(--berry);
+    border-radius:5px;
+    margin-top:1px;
+  }
+
+  /* ---------- NOTES AREA ---------- */
+  .notes{
+    margin:22px 0 4px;
+  }
+  .notes .notes-label{
+    font-family:'Space Mono',monospace;
+    text-transform:uppercase;
+    letter-spacing:.16em;
+    font-size:11.5px;
+    color:var(--ink-soft);
+    margin-bottom:10px;
+  }
+  .notes .lines{
+    background-image:repeating-linear-gradient(
+      to bottom, transparent 0, transparent 31px, var(--line-strong) 31px, var(--line-strong) 32px);
+    height:128px;
+  }
+
+  /* ---------- DIAGRAM FIGURES ---------- */
+  figure{margin:24px 0;}
+  .diagram{
+    border:1.5px solid var(--line-strong);
+    border-radius:12px;
+    background:#fff;
+    padding:18px;
+    display:block;
+  }
+  .diagram svg{display:block;width:100%;height:auto;}
+  figcaption{
+    font-family:'Space Mono',monospace;
+    font-size:12px;
+    color:var(--ink-soft);
+    margin-top:10px;
+    letter-spacing:.02em;
+    text-align:center;
+  }
+  figcaption b{color:var(--berry-deep);}
+
+  /* ---------- CALLOUT BOX (neutral info) ---------- */
+  .note-box{
+    border-left:4px solid var(--teal);
+    background:rgba(47,143,131,.07);
+    padding:14px 18px;
+    border-radius:0 8px 8px 0;
+    margin:20px 0;
+    font-size:15.5px;
+  }
+  .note-box .nb-label{
+    font-family:'Space Mono',monospace;
+    font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--teal);font-weight:700;margin-bottom:4px;
+  }
+
+  /* ---------- TABLES ---------- */
+  table{
+    width:100%;
+    border-collapse:collapse;
+    margin:18px 0 22px;
+    font-size:14.5px;
+  }
+  caption{
+    text-align:left;
+    font-family:'Fraunces',serif;
+    font-size:20px;
+    font-weight:600;
+    margin-bottom:10px;
+  }
+  th{
+    background:var(--ink);
+    color:var(--paper);
+    text-align:left;
+    padding:9px 12px;
+    font-family:'Space Mono',monospace;
+    font-size:11.5px;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    font-weight:400;
+  }
+  td{
+    padding:9px 12px;
+    border-bottom:1px solid var(--line);
+    vertical-align:top;
+  }
+  tr:nth-child(even) td{background:rgba(228,222,211,.32);}
+  .swatch{
+    display:inline-block;width:13px;height:13px;border-radius:3px;
+    margin-right:7px;vertical-align:-1px;border:1px solid rgba(0,0,0,.15);
+  }
+
+  /* ---------- TOC ---------- */
+  .toc-list{list-style:none;margin:0;padding:0;column-count:1;}
+  .toc-list li{
+    display:flex;align-items:baseline;gap:12px;
+    padding:9px 0;border-bottom:1px dotted var(--line-strong);
+    margin:0;
+  }
+  .toc-num{
+    font-family:'Space Mono',monospace;font-weight:700;
+    color:var(--berry);width:34px;flex:0 0 34px;
+  }
+  .toc-title{font-family:'Fraunces',serif;font-size:19px;font-weight:500;flex:1;}
+  .toc-pg{font-family:'Space Mono',monospace;color:var(--ink-soft);font-size:13px;}
+
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+  .pill{
+    display:inline-block;font-family:'Space Mono',monospace;font-size:11px;
+    letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:999px;
+    background:var(--ink);color:var(--paper);margin-right:6px;
+  }
+
+  /* ---------- BONUS CHAPTER + PROJECT LOG ---------- */
+  .sec-num.bonus{
+    background:var(--teal);
+    box-shadow:3px 3px 0 #1f6b61;
+    font-size:52px;
+  }
+  .field{margin-bottom:15px;}
+  .field .flabel{
+    font-family:'Space Mono',monospace;
+    font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--ink-soft);display:block;margin-bottom:7px;
+  }
+  .field .fline{border-bottom:1.5px solid var(--line-strong);height:24px;}
+  .field .fbox{border:1.5px solid var(--line-strong);border-radius:8px;height:74px;}
+  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+  .field-row.thirds{grid-template-columns:1fr 1fr 1fr;}
+  .checkrow{display:flex;gap:20px;flex-wrap:wrap;font-family:'Space Mono',monospace;font-size:12.5px;color:var(--ink);align-items:center;}
+  .checkrow .opt{display:flex;align-items:center;gap:8px;}
+  .checkrow .obox{width:16px;height:16px;border:2px solid var(--berry);border-radius:4px;flex:0 0 auto;}
+  .log-rule{border:none;border-top:2px dashed var(--line-strong);margin:18px 0;}
+
+  /* ---------- PRINT ---------- */
+  @media print{
+    body{background:#fff;font-size:11.5pt;}
+    .page{
+      width:auto;min-height:auto;margin:0;
+      box-shadow:none;padding:0.5in 0.55in;
+      page-break-after:always;
+    }
+    .page:last-child{page-break-after:auto;}
+    .tip,.checklist,figure,table,.note-box{page-break-inside:avoid;}
+    h2,h3{page-break-after:avoid;}
+    .sec-num{box-shadow:2px 2px 0 var(--berry-deep);-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    *{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    @page{size:letter;margin:0.45in;}
+  }
+  @media screen and (max-width:880px){
+    .page{width:auto;margin:14px;padding:30px 22px;}
+    .page::before{inset:14px;}
+    .cover h1{font-size:48px;}
+    .two-col{grid-template-columns:1fr;}
+    .sec-head{gap:14px;}
+    .sec-num{width:64px;height:64px;flex-basis:64px;font-size:44px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================ COVER ============================ -->
+<section class="page cover">
+  <div class="kicker">A Studio Workbook &bull; iPad Pro Edition</div>
+  <h1>The Procreate&#8202;<em>&rarr;</em>&#8202;Cricut Workbook</h1>
+  <p class="sub">Design on your iPad. Cut with confidence. Everything from first sketch to finished product.</p>
+
+  <div class="cover-art">
+    <svg viewBox="0 0 620 300" role="img" aria-label="An iPad drawing a shape, an arrow, and a Cricut machine cutting it out">
+      <!-- iPad -->
+      <rect x="20" y="60" width="200" height="150" rx="14" fill="#fff" stroke="#2B2733" stroke-width="3"/>
+      <rect x="34" y="74" width="172" height="122" rx="6" fill="#FCFAF6" stroke="#E4DED3" stroke-width="2"/>
+      <!-- drawn heart on screen -->
+      <path d="M120 170 C 80 140, 70 100, 105 100 C 120 100, 120 115, 120 120 C 120 115, 120 100, 135 100 C 170 100, 160 140, 120 170 Z" fill="#C4456B" opacity="0.92"/>
+      <!-- pencil -->
+      <g transform="rotate(38 196 150)">
+        <rect x="188" y="92" width="9" height="92" rx="4" fill="#2F8F83"/>
+        <polygon points="188,184 197,184 192.5,200" fill="#2B2733"/>
+      </g>
+      <text x="120" y="58" font-family="Space Mono, monospace" font-size="12" fill="#5E5868" text-anchor="middle" letter-spacing="2">PROCREATE</text>
+
+      <!-- arrow -->
+      <g stroke="#2B2733" stroke-width="3" fill="none">
+        <path d="M250 135 H 300"/>
+      </g>
+      <polygon points="300,128 314,135 300,142" fill="#2B2733"/>
+      <text x="282" y="120" font-family="Space Mono, monospace" font-size="11" fill="#C4456B" text-anchor="middle">PNG</text>
+
+      <!-- Cricut machine -->
+      <rect x="340" y="78" width="250" height="130" rx="16" fill="#2B2733"/>
+      <rect x="340" y="120" width="250" height="50" rx="0" fill="#3a3543"/>
+      <!-- mat feeding -->
+      <rect x="360" y="135" width="220" height="22" rx="3" fill="#3F9E6E"/>
+      <!-- cut heart on mat -->
+      <path d="M470 156 C 452 146, 448 132, 463 132 C 470 132, 470 138, 470 140 C 470 138, 470 132, 477 132 C 492 132, 488 146, 470 156 Z" fill="#FCFAF6" stroke="#2B2733" stroke-width="1.5"/>
+      <!-- buttons -->
+      <circle cx="565" cy="100" r="7" fill="#C4456B"/>
+      <circle cx="545" cy="100" r="7" fill="#FBE9C7"/>
+      <text x="465" y="200" font-family="Space Mono, monospace" font-size="12" fill="#fff" text-anchor="middle" letter-spacing="2">CRICUT</text>
+    </svg>
+  </div>
+
+  <div class="cover-foot">
+    <div>
+      <span class="badge">Stephanie&rsquo;s Edition</span>
+    </div>
+    <div style="text-align:right;">
+      12 chapters &bull; cheat sheets &bull; practice projects<br>
+      Built for the design-outside-Design-Space workflow
+    </div>
+  </div>
+</section>
+
+<!-- ============================ HOW TO USE + TOC ============================ -->
+<section class="page">
+  <p class="eyebrow">Before you begin</p>
+  <h2 style="font-family:'Fraunces';font-size:32px;margin-bottom:14px;">How to use this workbook</h2>
+  <p class="lead">This is a working manual, not a book to read once. Mark it up. Check the boxes. Fill the note lines after a project so the next one goes faster.</p>
+
+  <div class="two-col" style="margin:20px 0 6px;">
+    <div>
+      <h4 style="color:var(--berry-deep);">The three repeating helpers</h4>
+      <ul class="tight">
+        <li><strong>Stephanie&rsquo;s Tips</strong> — the butter-yellow cards hold the things that only come from doing it wrong once.</li>
+        <li><strong>Checklists</strong> — the boxed lists. Run them before you press <em>Make It</em>.</li>
+        <li><strong>Diagrams</strong> — original drawings of each screen and step. Nothing here is a copyrighted screenshot, so it will still make sense when the app updates.</li>
+      </ul>
+    </div>
+    <div>
+      <h4 style="color:var(--berry-deep);">The mat color code</h4>
+      <p style="font-size:15px;">Cricut already color-codes its mats. This book borrows that language everywhere:</p>
+      <ul class="tight" style="font-size:14.5px;">
+        <li><span class="swatch" style="background:var(--mat-blue)"></span><strong>Blue</strong> — LightGrip, delicate</li>
+        <li><span class="swatch" style="background:var(--mat-green)"></span><strong>Green</strong> — StandardGrip, everyday</li>
+        <li><span class="swatch" style="background:var(--mat-purple)"></span><strong>Purple</strong> — StrongGrip, heavy</li>
+        <li><span class="swatch" style="background:var(--mat-pink)"></span><strong>Pink</strong> — FabricGrip, fabric</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sec-head" style="margin-top:26px;border-bottom-width:3px;">
+    <div class="titles"><p class="eyebrow" style="margin-bottom:2px;">Contents</p><h2 style="font-size:30px;">What&rsquo;s inside</h2></div>
+  </div>
+  <ol class="toc-list">
+    <li><span class="toc-num">01</span><span class="toc-title">Getting Started</span><span class="toc-pg">machine, mats, blades, iPad</span></li>
+    <li><span class="toc-num">02</span><span class="toc-title">Procreate for Cricut</span><span class="toc-pg">canvas, DPI, layers, export</span></li>
+    <li><span class="toc-num">03</span><span class="toc-title">Design Space (iPad Edition)</span><span class="toc-pg">upload, tools, offset</span></li>
+    <li><span class="toc-num">04</span><span class="toc-title">Vinyl Projects</span><span class="toc-pg">permanent, removable, transfer</span></li>
+    <li><span class="toc-num">05</span><span class="toc-title">Heat Transfer Vinyl (HTV)</span><span class="toc-pg">mirror, heat, layering</span></li>
+    <li><span class="toc-num">06</span><span class="toc-title">Print Then Cut Stickers</span><span class="toc-pg">bleed, offset, calibration</span></li>
+    <li><span class="toc-num">07</span><span class="toc-title">Paper Crafts</span><span class="toc-pg">cards, tags, flowers</span></li>
+    <li><span class="toc-num">08</span><span class="toc-title">Labels &amp; Organization</span><span class="toc-pg">pantry, bins, decals</span></li>
+    <li><span class="toc-num">09</span><span class="toc-title">Troubleshooting</span><span class="toc-pg">when it goes wrong</span></li>
+    <li><span class="toc-num">10</span><span class="toc-title">My Favorite Workflow</span><span class="toc-pg">start to finish</span></li>
+    <li><span class="toc-num">11</span><span class="toc-title">Cheat Sheets</span><span class="toc-pg">tear-out references</span></li>
+    <li><span class="toc-num">12</span><span class="toc-title">Practice Projects</span><span class="toc-pg">five to build skill</span></li>
+    <li><span class="toc-num" style="color:var(--teal);">+</span><span class="toc-title">Bonus: Procreate &rarr; SVG</span><span class="toc-pg">vectorize for clean cuts</span></li>
+    <li><span class="toc-num" style="color:var(--teal);">&#9998;</span><span class="toc-title">Project Log</span><span class="toc-pg">photocopy &amp; reuse</span></li>
+  </ol>
+</section>
+
+<!-- ============================ 1. GETTING STARTED ============================ -->
+<section class="page">
+  <div class="sec-head">
+    <div class="sec-num">1</div>
+    <div class="titles"><p class="eyebrow">The foundation</p><h2>Getting Started</h2></div>
+  </div>
+
+  <p class="lead">Before the first cut, get to know the four things you&rsquo;ll touch every single project: the machine, the mat, the blade, and the material.</p>
+
+  <h3>Cricut machine overview</h3>
+  <p>Every Cricut works the same way: a sticky mat carries your material under a blade that follows the paths from Design Space. Learn these five spots and the machine stops being mysterious.</p>
+
+  <figure>
+    <div class="diagram">
+      <svg viewBox="0 0 640 300" role="img" aria-label="Labeled diagram of a Cricut machine">
+        <!-- body -->
+        <rect x="70" y="70" width="500" height="150" rx="18" fill="#2B2733"/>
+        <rect x="70" y="120" width="500" height="40" fill="#37323F"/>
+        <!-- open lid top -->
+        <rect x="70" y="50" width="500" height="34" rx="14" fill="#3a3543"/>
+        <!-- carriage -->
+        <rect x="250" y="96" width="120" height="46" rx="7" fill="#FCFAF6" stroke="#C4456B" stroke-width="2.5"/>
+        <text x="276" y="124" font-family="Space Mono,monospace" font-size="15" fill="#2B2733">A  B</text>
+        <!-- clamps labels -->
+        <circle cx="284" cy="112" r="3.5" fill="#2F8F83"/><circle cx="320" cy="112" r="3.5" fill="#C4456B"/>
+        <!-- mat -->
+        <rect x="150" y="158" width="340" height="26" rx="4" fill="#3F9E6E"/>
+        <!-- buttons -->
+        <circle cx="530" cy="100" r="11" fill="#FBE9C7"/>
+        <circle cx="530" cy="140" r="11" fill="#C4456B"/>
+        <!-- arrows / labels -->
+        <g font-family="Space Mono,monospace" font-size="12.5" fill="#2B2733">
+          <line x1="284" y1="60" x2="284" y2="96" stroke="#2F8F83" stroke-width="1.5"/>
+          <text x="180" y="48" fill="#2F8F83">Clamp A — accessories (pen, scoring)</text>
+          <line x1="320" y1="40" x2="320" y2="96" stroke="#C4456B" stroke-width="1.5"/>
+          <text x="330" y="36" fill="#C4456B">Clamp B — blade lives here</text>
+          <line x1="530" y1="100" x2="600" y2="100" stroke="#5E5868" stroke-width="1.5"/>
+          <text x="540" y="92" fill="#5E5868">Load / unload mat</text>
+          <line x1="530" y1="140" x2="600" y2="140" stroke="#5E5868" stroke-width="1.5"/>
+          <text x="544" y="160" fill="#5E5868">Go (cut)</text>
+          <text x="150" y="205" fill="#3F9E6E">Mat guides — line the mat up flush here</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption>The five spots to know. <b>Clamp B</b> holds your blade; the flashing <b>Go</b> button starts the cut.</figcaption>
+  </figure>
+
+  <div class="note-box">
+    <div class="nb-label">Which machine am I on?</div>
+    <strong>Explore</strong> machines cut vinyl, iron-on, paper, and cardstock — the everyday crafter set. <strong>Maker</strong> machines do all that <em>plus</em> fabric, leather, balsa, and chipboard using extra blades (rotary, knife). <strong>Joy / Joy Xtra</strong> are compact and great for labels and smaller decals.
+  </div>
+
+  <h3>Mats, blades, and tools</h3>
+  <div class="two-col">
+    <div>
+      <h4>Mats — matched by grip</h4>
+      <p style="font-size:15px;">The grip must match the material&rsquo;s weight. Too strong and you tear delicate paper lifting it off; too light and the material slides mid-cut.</p>
+    </div>
+    <div>
+      <h4>Blades — matched by thickness</h4>
+      <p style="font-size:15px;">The <strong>Fine-Point</strong> blade handles ~90% of your work: vinyl, iron-on, cardstock, sticker paper. Reach for others only when the material gets thick or fabric-y.</p>
+    </div>
+  </div>
+
+  <figure>
+    <div class="diagram">
+      <svg viewBox="0 0 640 200" role="img" aria-label="The four Cricut mats shown by color and grip strength">
+        <g font-family="Space Mono,monospace" font-size="12" fill="#2B2733">
+          <!-- blue -->
+          <rect x="30" y="40" width="120" height="120" rx="8" fill="#3E92C4" opacity="0.85"/>
+          <rect x="42" y="52" width="96" height="96" fill="none" stroke="#fff" stroke-dasharray="4 4" opacity="0.7"/>
+          <text x="90" y="178" text-anchor="middle" fill="#3E92C4">LightGrip</text>
+          <text x="90" y="100" text-anchor="middle" fill="#fff" font-size="11">paper · vellum</text>
+          <!-- green -->
+          <rect x="180" y="40" width="120" height="120" rx="8" fill="#3F9E6E" opacity="0.9"/>
+          <rect x="192" y="52" width="96" height="96" fill="none" stroke="#fff" stroke-dasharray="4 4" opacity="0.7"/>
+          <text x="240" y="178" text-anchor="middle" fill="#3F9E6E">StandardGrip</text>
+          <text x="240" y="100" text-anchor="middle" fill="#fff" font-size="11">vinyl · iron-on</text>
+          <!-- purple -->
+          <rect x="330" y="40" width="120" height="120" rx="8" fill="#6E54A0" opacity="0.9"/>
+          <rect x="342" y="52" width="96" height="96" fill="none" stroke="#fff" stroke-dasharray="4 4" opacity="0.7"/>
+          <text x="390" y="178" text-anchor="middle" fill="#6E54A0">StrongGrip</text>
+          <text x="390" y="100" text-anchor="middle" fill="#fff" font-size="11">cardstock · leather</text>
+          <!-- pink -->
+          <rect x="480" y="40" width="120" height="120" rx="8" fill="#E07BA6" opacity="0.9"/>
+          <rect x="492" y="52" width="96" height="96" fill="none" stroke="#fff" stroke-dasharray="4 4" opacity="0.7"/>
+          <text x="540" y="178" text-anchor="middle" fill="#E07BA6">FabricGrip</text>
+          <text x="540" y="100" text-anchor="middle" fill="#fff" font-size="11">fabric</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption>Grip strength climbs left to right. <b>Green</b> is your default for vinyl and iron-on.</figcaption>
+  </figure>
+
+  <h4>The hand tools worth owning</h4>
+  <ul class="tight">
+    <li><strong>Weeding tool</strong> — the hook that pulls away the excess vinyl you don&rsquo;t want.</li>
+    <li><strong>Scraper / brayer</strong> — presses material flat onto the mat and smooths vinyl onto surfaces.</li>
+    <li><strong>Spatula</strong> — lifts delicate cuts off the mat without curling them.</li>
+    <li><strong>Tweezers</strong> — for tiny pieces and lifting sticker corners.</li>
+    <li><strong>Transfer tape</strong> — moves a weeded vinyl design onto its final surface in one piece.</li>
+  </ul>
+
+  <div class="tip">
+    <div class="tip-label">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="#C4456B"><path d="M12 2a7 7 0 0 0-4 12.7V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.3A7 7 0 0 0 12 2Zm-2 19a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-1h-4Z"/></svg>
+      Stephanie&rsquo;s Tip
+    </div>
+    <p>Buy a <strong>spare Fine-Point blade</strong> before you think you need one. A dull blade is the #1 cause of &ldquo;why won&rsquo;t it cut through&rdquo; — and you never realize it&rsquo;s dull until you&rsquo;re mid-project at 9pm. Swap it, and the problem usually vanishes.</p>
+  </div>
+
+  <h3>Materials explained</h3>
+  <table>
+    <tr><th>Material</th><th>What it&rsquo;s for</th><th>Mat</th></tr>
+    <tr><td><strong>Permanent vinyl</strong> (glossy)</td><td>Mugs, tumblers, outdoor signs, anything washed often</td><td><span class="swatch" style="background:var(--mat-green)"></span>Green</td></tr>
+    <tr><td><strong>Removable vinyl</strong> (matte)</td><td>Wall decals, windows, décor you&rsquo;ll change later</td><td><span class="swatch" style="background:var(--mat-green)"></span>Green</td></tr>
+    <tr><td><strong>Iron-on / HTV</strong></td><td>Shirts, totes, fabric — applied with heat</td><td><span class="swatch" style="background:var(--mat-green)"></span>Green</td></tr>
+    <tr><td><strong>Cardstock</strong></td><td>Cards, gift tags, paper flowers</td><td><span class="swatch" style="background:var(--mat-green)"></span>Green / <span class="swatch" style="background:var(--mat-purple)"></span>Purple</td></tr>
+    <tr><td><strong>Sticker paper</strong></td><td>Print Then Cut stickers</td><td><span class="swatch" style="background:var(--mat-green)"></span>Green</td></tr>
+    <tr><td><strong>Printer / thin paper</strong></td><td>Layered paper art, vellum</td><td><span class="swatch" style="background:var(--mat-blue)"></span>Blue</td></tr>
+  </table>
+
+  <h3>iPad setup</h3>
+  <p>Your whole studio lives in three apps plus a Bluetooth handshake. Set it up once.</p>
+  <figure>
+    <div class="diagram">
+      <svg viewBox="0 0 640 130" role="img" aria-label="iPad workflow from Procreate to Files to Design Space to the machine over Bluetooth">
+        <g font-family="Space Mono,monospace" font-size="12">
+          <rect x="20" y="35" width="120" height="60" rx="10" fill="#fff" stroke="#C4456B" stroke-width="2"/>
+          <text x="80" y="60" text-anchor="middle" fill="#2B2733">Procreate</text>
+          <text x="80" y="78" text-anchor="middle" fill="#5E5868" font-size="10">design + export</text>
+
+          <rect x="180" y="35" width="110" height="60" rx="10" fill="#fff" stroke="#5E5868" stroke-width="2"/>
+          <text x="235" y="60" text-anchor="middle" fill="#2B2733">Files</text>
+          <text x="235" y="78" text-anchor="middle" fill="#5E5868" font-size="10">holds the PNG</text>
+
+          <rect x="330" y="35" width="130" height="60" rx="10" fill="#fff" stroke="#2F8F83" stroke-width="2"/>
+          <text x="395" y="60" text-anchor="middle" fill="#2B2733">Design Space</text>
+          <text x="395" y="78" text-anchor="middle" fill="#5E5868" font-size="10">upload + cut</text>
+
+          <rect x="500" y="35" width="120" height="60" rx="10" fill="#2B2733"/>
+          <text x="560" y="60" text-anchor="middle" fill="#fff">Cricut</text>
+          <text x="560" y="78" text-anchor="middle" fill="#FBE9C7" font-size="10">Bluetooth</text>
+
+          <g stroke="#2B2733" stroke-width="2" fill="none">
+            <path d="M140 65 H175"/><path d="M290 65 H325"/><path d="M460 65 H495"/>
+          </g>
+          <polygon points="175,60 184,65 175,70" fill="#2B2733"/>
+          <polygon points="325,60 334,65 325,70" fill="#2B2733"/>
+          <polygon points="495,60 504,65 495,70" fill="#2B2733"/>
+        </g>
+      </svg>
+    </div>
+    <figcaption>Design → save → upload → cut. The machine pairs to the iPad over <b>Bluetooth</b> (keep them within ~10–15 ft).</figcaption>
+  </figure>
+
+  <div class="checklist">
+    <div class="cl-head">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2F8F83" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>
+      First-time setup checklist
+    </div>
+    <ul>
+      <li><span class="box"></span>Install <strong>Procreate</strong> and <strong>Cricut Design Space</strong> from the App Store</li>
+      <li><span class="box"></span>Turn the machine on and pair it in iPad <strong>Settings → Bluetooth</strong></li>
+      <li><span class="box"></span>Open Design Space → tap the menu → confirm your machine model is selected</li>
+      <li><span class="box"></span>Run a test cut on scrap vinyl to confirm everything talks</li>
+      <li><span class="box"></span>Make an iCloud / Files folder named &ldquo;Cricut Exports&rdquo;</li>
+    </ul>
+  </div>
+
+  <div class="notes">
+    <div class="notes-label">My machine + blade notes</div>
+    <div class="lines"></div>
+  </div>
+</section>
+
+<!-- ============================ 2. PROCREATE FOR CRICUT ============================ -->
+<section class="page">
+  <div class="sec-head">
+    <div class="sec-num">2</div>
+    <div class="titles"><p class="eyebrow">Design with cutting in mind</p><h2>Procreate for Cricut</h2></div>
+  </div>
+
+  <p class="lead">Cricut cuts along <strong>color edges</strong>, not your beautiful details. The cleaner and more deliberate your Procreate file, the cleaner the cut. Six habits make all the difference.</p>
+
+  <h3>1 · Choosing canvas size</h3>
+  <p>Set your canvas to the <strong>real-world size</strong> you want to cut. A 4-inch decal? Make a 4&Prime;&times;4&Prime; canvas. This way nothing has to be guessed or rescaled later, and your DPI stays honest.</p>
+  <ul class="tight">
+    <li>Standard mat = <strong>12&Prime; &times; 12&Prime;</strong> — a safe max canvas for most cuts.</li>
+    <li>Print Then Cut has a smaller printable area (about <strong>9.25&Prime; &times; 6.75&Prime;</strong>, larger on newer machines — check yours).</li>
+  </ul>
+
+  <h3>2 · Resolution (DPI)</h3>
+  <figure>
+    <div class="diagram">
+      <svg viewBox="0 0 640 150" role="img" aria-label="Procreate canvas settings showing dimensions in inches and DPI set to 300">
+        <rect x="160" y="20" width="320" height="110" rx="10" fill="#fff" stroke="#E4DED3" stroke-width="2"/>
+        <text x="320" y="44" text-anchor="middle" font-family="Fraunces,serif" font-size="15" fill="#2B2733">Create Canvas</text>
+        <line x1="180" y1="54" x2="460" y2="54" stroke="#E4DED3"/>
+        <g font-family="Space Mono,monospace" font-size="13" fill="#2B2733">
+          <text x="185" y="78">Width</text><text x="430" y="78" text-anchor="end" fill="#2F8F83">4 in</text>
+          <text x="185" y="100">Height</text><text x="430" y="100" text-anchor="end" fill="#2F8F83">4 in</text>
+          <text x="185" y="122">DPI</text>
+          <rect x="378" y="108" width="56" height="20" rx="4" fill="#C4456B"/>
+          <text x="406" y="122" text-anchor="middle" fill="#fff">300</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption>Always start at <b>300 DPI</b>. Set it <em>before</em> you draw — you can&rsquo;t add resolution back later.</figcaption>
+  </figure>
+  <p>300 DPI gives the blade crisp edges to follow. Lower DPI is where fuzzy, stair-stepped cut lines come from.</p>
+
+  <h3>3 · Transparent backgrounds</h3>
+  <p>This is the one that trips up everyone. Before exporting, tap the <strong>Background</strong> layer off (uncheck it) so it becomes a checkerboard. That checkerboard is &ldquo;nothing here&rdquo; — it tells Cricut what is shape and what is empty.</p>
+
+  <h3>4 · Layers = colors</h3>
+  <p>Put <strong>each color on its own Procreate layer</strong>, exactly as you&rsquo;d want it separated in Design Space. Think of one layer as one mat / one vinyl color.</p>
+  <figure>
+    <div class="diagram">
+      <svg viewBox="0 0 640 170" role="img" aria-label="Three stacked colored layers in Procreate becoming three separate cut pieces">
+        <g font-family="Space Mono,monospace" font-size="11">
+          <!-- stacked layers -->
+          <rect x="60" y="40" width="150" height="30" rx="5" fill="#C4456B" opacity="0.9"/><text x="135" y="60" text-anchor="middle" fill="#fff">Layer 1 — berry</text>
+          <rect x="60" y="78" width="150" height="30" rx="5" fill="#2F8F83" opacity="0.9"/><text x="135" y="98" text-anchor="middle" fill="#fff">Layer 2 — teal</text>
+          <rect x="60" y="116" width="150" height="30" rx="5" fill="#6E54A0" opacity="0.9"/><text x="135" y="136" text-anchor="middle" fill="#fff">Layer 3 — purple</text>
+          <!-- arrow -->
+          <path d="M230 93 H300" stroke="#2B2733" stroke-width="2" fill="none"/><polygon points="300,86 314,93 300,100" fill="#2B2733"/>
+          <!-- separated pieces -->
+          <circle cx="380" cy="60" r="22" fill="#C4456B"/>
+          <rect x="430" y="40" width="44" height="44" rx="6" fill="#2F8F83"/>
+          <polygon points="540,38 562,84 518,84" fill="#6E54A0"/>
+          <text x="450" y="120" text-anchor="middle" fill="#5E5868">3 colors → 3 clean cut pieces</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption>Layered in Procreate = pre-separated in Design Space. Export with <b>Share Layers</b> to keep them apart.</figcaption>
+  </figure>
+
+  <h3>5 · Exporting PNGs</h3>
+  <p>Tap <strong>Actions (wrench) → Share</strong>. Two routes:</p>
+  <ul class="tight">
+    <li><strong>Share → PNG</strong> — one flattened image (background off = transparent). Good for single-color cuts and Print Then Cut.</li>
+    <li><strong>Share → Share Layers → PNG files</strong> — exports each layer as its own PNG. Best for multi-color projects.</li>
+  </ul>
+
+  <h3>6 · Avoiding jagged edges</h3>
+  <figure>
+    <div class="diagram">
+      <svg viewBox="0 0 640 160" role="img" aria-label="Comparison of a fuzzy textured edge versus a clean smooth edge">
+        <!-- bad -->
+        <text x="160" y="28" text-anchor="middle" font-family="Space Mono,monospace" font-size="12" fill="#9E2F52">AVOID — soft / textured brush</text>
+        <path d="M70 120 q 20 -60 40 -30 q 10 14 22 -6 q 14 -22 30 8 q 12 22 28 4 q 14 -16 30 6" fill="none" stroke="#C4456B" stroke-width="10" stroke-linecap="round" opacity="0.45" filter="url(#f)"/>
+        <filter id="f"><feGaussianBlur stdDeviation="2.2"/></filter>
+        <!-- good -->
+        <text x="480" y="28" text-anchor="middle" font-family="Space Mono,monospace" font-size="12" fill="#2F8F83">USE — solid, crisp shape</text>
+        <path d="M390 120 q 20 -60 40 -30 q 10 14 22 -6 q 14 -22 30 8 q 12 22 28 4 q 14 -16 30 6" fill="none" stroke="#2F8F83" stroke-width="10" stroke-linecap="round"/>
+        <line x1="320" y1="40" x2="320" y2="135" stroke="#E4DED3" stroke-dasharray="4 4"/>
+      </svg>
+    </div>
+    <figcaption>Cricut traces every fuzzy pixel. <b>Solid colors, hard edges, monoline brushes</b> cut clean.</figcaption>
+  </figure>
+
+  <div class="tip">
+    <div class="tip-label">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="#C4456B"><path d="M12 2a7 7 0 0 0-4 12.7V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.3A7 7 0 0 0 12 2Zm-2 19a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-1h-4Z"/></svg>
+      Stephanie&rsquo;s Tip
+    </div>
+    <p>For cut files, use the <strong>Monoline</strong> brush or a hard-edged shape — never a watercolor or textured brush. And turn off Procreate&rsquo;s drawing aids that add softness. If you can see fuzzy pixels when you zoom way in, so can the blade.</p>
+  </div>
+
+  <div class="checklist">
+    <div class="cl-head">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2F8F83" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>
+      Before you export from Procreate
+    </div>
+    <ul>
+      <li><span class="box"></span>Canvas is at the real cut size, <strong>300 DPI</strong></li>
+      <li><span class="box"></span>Each color is on its <strong>own layer</strong></li>
+      <li><span class="box"></span>Edges are crisp — no soft or textured brushes</li>
+      <li><span class="box"></span><strong>Background layer is OFF</strong> (checkerboard showing)</li>
+      <li><span class="box"></span>Exported as <strong>PNG</strong> (or Share Layers for multi-color)</li>
+      <li><span class="box"></span>File saved to the &ldquo;Cricut Exports&rdquo; folder in Files</li>
+    </ul>
+  </div>
+
+  <div class="notes">
+    <div class="notes-label">Brushes &amp; settings that worked for me</div>
+    <div class="lines"></div>
+  </div>
+</section>
+
+<!-- ============================ 3. DESIGN SPACE ============================ -->
+<section class="page">
+  <div class="sec-head">
+    <div class="sec-num">3</div>
+    <div class="titles"><p class="eyebrow">iPad edition</p><h2>Design Space</h2></div>
+  </div>
+
+  <p class="lead">You design in Procreate, so you only need Design Space for a few jobs: bring the art in, set the real size, tell the machine how to cut, and use a handful of tools. Here&rsquo;s where to tap.</p>
+
+  <h3>Uploading artwork</h3>
+  <figure>
+    <div class="diagram">
+      <svg viewBox="0 0 640 230" role="img" aria-label="Design Space canvas showing the left toolbar with Upload highlighted and the upload steps">
+        <!-- app frame -->
+        <rect x="20" y="20" width="600" height="190" rx="12" fill="#fff" stroke="#E4DED3" stroke-width="2"/>
+        <!-- left toolbar -->
+        <rect x="20" y="20" width="70" height="190" rx="12" fill="#FCFAF6"/>
+        <g font-family="Space Mono,monospace" font-size="9" fill="#5E5868" text-anchor="middle">
+          <circle cx="55" cy="55" r="13" fill="#fff" stroke="#E4DED3"/><text x="55" y="80">New</text>
+          <circle cx="55" cy="110" r="13" fill="#fff" stroke="#E4DED3"/><text x="55" y="135">Text</text>
+          <circle cx="55" cy="165" r="15" fill="#C4456B"/><text x="55" y="190" fill="#C4456B" font-size="9.5">Upload</text>
+          <path d="M50 165 l5 5 l5 -8" stroke="#fff" stroke-width="2" fill="none"/>
+        </g>
+        <!-- step flow on canvas -->
+        <g font-family="Space Mono,monospace" font-size="11" fill="#2B2733">
+          <rect x="120" y="50" width="130" height="40" rx="6" fill="#FBE9C7" stroke="#E7B45A"/><text x="185" y="74" text-anchor="middle">1 · Upload Image</text>
+          <path d="M255 70 H285" stroke="#2B2733" stroke-width="1.5"/><polygon points="285,65 295,70 285,75" fill="#2B2733"/>
+          <rect x="300" y="50" width="130" height="40" rx="6" fill="#FBE9C7" stroke="#E7B45A"/><text x="365" y="74" text-anchor="middle">2 · pick PNG</text>
+          <path d="M435 70 H465" stroke="#2B2733" stroke-width="1.5"/><polygon points="465,65 475,70 465,75" fill="#2B2733"/>
+          <rect x="480" y="50" width="130" height="40" rx="6" fill="#FBE9C7" stroke="#E7B45A"/><text x="545" y="74" text-anchor="middle">3 · Cut Image</text>
+
+          <rect x="120" y="120" width="180" height="42" rx="6" fill="#fff" stroke="#2F8F83" stroke-width="1.5"/>
+          <text x="210" y="140" text-anchor="middle" fill="#2F8F83">4 · clean stray pixels</text>
+          <text x="210" y="154" text-anchor="middle" fill="#5E5868" font-size="9">(rare with a transparent PNG)</text>
+
+          <path d="M305 141 H335" stroke="#2B2733" stroke-width="1.5"/><polygon points="335,136 345,141 335,146" fill="#2B2733"/>
+          <rect x="350" y="120" width="180" height="42" rx="6" fill="#C4456B"/>
+          <text x="440" y="146" text-anchor="middle" fill="#fff">5 · Add to Canvas</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption>Tap <b>Upload</b> (left bar) → Upload Image → choose your PNG → save as a <b>Cut Image</b> → Add to Canvas.</figcaption>
+  </figure>
+
+  <h3>Cut vs. Print Then Cut</h3>
+  <p>This single choice changes everything downstream. Pick it when you save the upload.</p>
+  <figure>
+    <div class="diagram">
+      <svg viewBox="0 0 640 175" role="img" aria-label="Cut only versus Print Then Cut comparison">
+        <!-- cut -->
+        <rect x="40" y="30" width="240" height="120" rx="10" fill="#fff" stroke="#2F8F83" stroke-width="2"/>
+        <text x="160" y="55" text-anchor="middle" font-family="Fraunces,serif" font-size="17" fill="#2F8F83">Cut Image</text>
+        <path d="M120 110 a 28 28 0 1 0 0.1 0" fill="#2F8F83" opacity="0.85"/>
+        <path d="M120 82 v56" stroke="#fff" stroke-dasharray="3 3"/>
+        <text x="200" y="100" font-family="Space Mono,monospace" font-size="10.5" fill="#5E5868">blade follows</text>
+        <text x="200" y="115" font-family="Space Mono,monospace" font-size="10.5" fill="#5E5868">the outline only</text>
+        <text x="160" y="142" text-anchor="middle" font-family="Space Mono,monospace" font-size="10" fill="#2B2733">vinyl · HTV · cardstock</text>
+
+        <!-- ptc -->
+        <rect x="360" y="30" width="240" height="120" rx="10" fill="#fff" stroke="#C4456B" stroke-width="2"/>
+        <text x="480" y="55" text-anchor="middle" font-family="Fraunces,serif" font-size="17" fill="#C4456B">Print Then Cut</text>
+        <defs><linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#C4456B"/><stop offset="1" stop-color="#FBE9C7"/></linearGradient></defs>
+        <circle cx="440" cy="110" r="26" fill="url(#g1)"/>
+        <circle cx="440" cy="110" r="30" fill="none" stroke="#2B2733" stroke-dasharray="4 3"/>
+        <text x="520" y="100" font-family="Space Mono,monospace" font-size="10.5" fill="#5E5868">printer prints,</text>
+        <text x="520" y="115" font-family="Space Mono,monospace" font-size="10.5" fill="#5E5868">blade cuts around</text>
+        <text x="480" y="142" text-anchor="middle" font-family="Space Mono,monospace" font-size="10" fill="#2B2733">stickers · full color</text>
+      </svg>
+    </div>
+    <figcaption><b>Cut</b> = outline only, keeps your color separations. <b>Print Then Cut</b> = your home printer prints the art, the machine cuts the border. Gradients welcome here.</figcaption>
+  </figure>
+
+  <h3>Resize correctly</h3>
+  <p>Tap the design, then type exact dimensions in the size fields (don&rsquo;t eyeball the corner drag). Keep the lock icon <strong>closed</strong> to hold proportions. If you designed at real size in Procreate, it often imports already correct.</p>
+
+  <h3>The core tools</h3>
+  <div class="two-col">
+    <div>
+      <h4>Duplicate &amp; Align</h4>
+      <p style="font-size:15px;">Duplicate makes copies; Align evens up spacing and edges. Use Align → Center to stack layered pieces perfectly.</p>
+    </div>
+    <div>
+      <h4>Attach</h4>
+      <p style="font-size:15px;">Holds pieces in their exact position so the machine doesn&rsquo;t rearrange them to &ldquo;save material.&rdquo; Essential for multi-piece layouts.</p>
+    </div>
+  </div>
+
+  <figure>
+    <div class="diagram">
+      <svg viewBox="0 0 640 230" role="img" aria-label="Before and after diagrams of Weld, Slice, Contour, and Offset">
+        <g font-family="Space Mono,monospace" font-size="11" fill="#2B2733">
+          <!-- WELD -->
+          <text x="90" y="28" text-anchor="middle" fill="#C4456B">WELD</text>
+          <circle cx="72" cy="60" r="20" fill="none" stroke="#5E5868" stroke-width="2"/>
+          <circle cx="100" cy="60" r="20" fill="none" stroke="#5E5868" stroke-width="2"/>
+          <path d="M120 90 h30" stroke="#2B2733" fill="none"/><polygon points="150,86 158,90 150,94" fill="#2B2733"/>
+          <path d="M52 110 a20 20 0 0 1 20 -20 a20 20 0 0 1 20 0 a20 20 0 1 1 0 40 a20 20 0 0 1 -40 -20 z" fill="#C4456B" opacity="0.85"/>
+          <text x="90" y="150" text-anchor="middle" fill="#5E5868" font-size="9">joins into one shape</text>
+
+          <!-- SLICE -->
+          <text x="250" y="28" text-anchor="middle" fill="#C4456B">SLICE</text>
+          <rect x="220" y="45" width="40" height="40" fill="#5E5868" opacity="0.5"/>
+          <circle cx="262" cy="65" r="16" fill="none" stroke="#2B2733" stroke-width="2"/>
+          <path d="M285 90 h25" stroke="#2B2733" fill="none"/><polygon points="310,86 318,90 310,94" fill="#2B2733"/>
+          <path d="M220 110 h36 a16 16 0 0 0 -16 16 v8 h-20 z" fill="#C4456B" opacity="0.85"/>
+          <text x="250" y="150" text-anchor="middle" fill="#5E5868" font-size="9">cuts one out of another</text>
+
+          <!-- CONTOUR -->
+          <text x="410" y="28" text-anchor="middle" fill="#2F8F83">CONTOUR</text>
+          <circle cx="410" cy="62" r="22" fill="#5E5868" opacity="0.5"/>
+          <circle cx="410" cy="62" r="8" fill="#fff"/>
+          <path d="M440 90 h25" stroke="#2B2733" fill="none"/><polygon points="465,86 473,90 465,94" fill="#2B2733"/>
+          <circle cx="410" cy="120" r="22" fill="#2F8F83" opacity="0.85"/>
+          <text x="410" y="150" text-anchor="middle" fill="#5E5868" font-size="9">hides an inner cut</text>
+
+          <!-- OFFSET -->
+          <text x="560" y="28" text-anchor="middle" fill="#2F8F83">OFFSET</text>
+          <path d="M540 60 l16 -14 l16 14 l-8 26 h-16 z" fill="#2F8F83" opacity="0.85"/>
+          <path d="M527 60 l29 -25 l29 25 l-14 44 h-30 z" fill="none" stroke="#C4456B" stroke-width="2" stroke-dasharray="4 3"/>
+          <text x="560" y="150" text-anchor="middle" fill="#5E5868" font-size="9">adds an outline</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption><b>Weld</b> merges. <b>Slice</b> subtracts. <b>Contour</b> hides parts of a cut. <b>Offset</b> builds an outline (the sticker-border hero).</figcaption>
+  </figure>
+
+  <div class="tip">
+    <div class="tip-label">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="#C4456B"><path d="M12 2a7 7 0 0 0-4 12.7V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.3A7 7 0 0 0 12 2Zm-2 19a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-1h-4Z"/></svg>
+      Stephanie&rsquo;s Tip
+    </div>
+    <p>Since you design in Procreate, you&rsquo;ll mostly live in just three buttons: <strong>Upload, Attach, and Offset</strong>. Weld and Slice matter more for people building art inside Design Space — don&rsquo;t feel behind for skipping them.</p>
+  </div>
+
+  <div class="checklist">
+    <div class="cl-head">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2F8F83" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>
+      Before tapping &ldquo;Make It&rdquo;
+    </div>
+    <ul>
+      <li><span class="box"></span>Design is the <strong>correct real-world size</strong></li>
+      <li><span class="box"></span>Right mode chosen: <strong>Cut</strong> or <strong>Print Then Cut</strong></li>
+      <li><span class="box"></span>Multi-piece layouts are <strong>Attached</strong></li>
+      <li><span class="box"></span>Colors are on the layers you expect</li>
+      <li><span class="box"></span>HTV projects: ready to <strong>Mirror</strong> on the next screen (see §5)</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================ 4. VINYL ============================ -->
+<section class="page">
+  <div class="sec-head">
+    <div class="sec-num">4</div>
+    <div class="titles"><p class="eyebrow">Adhesive projects</p><h2>Vinyl Projects</h2></div>
+  </div>
+
+  <p class="lead">Vinyl sticks to hard surfaces — mugs, laptops, walls, signs. The whole game is: cut, weed away the excess, then move what&rsquo;s left onto your surface with transfer tape.</p>
+
+  <div class="two-col">
+    <div>
+      <h3 style="margin-top:6px;">Permanent vinyl</h3>
+      <p style="font-size:15.5px;"><strong>Glossy finish.</strong> Holds up to water, sun, and washing. Reach for it on tumblers, water bottles, outdoor signs, and car decals. Harder to remove cleanly later.</p>
+    </div>
+    <div>
+      <h3 style="margin-top:6px;">Removable vinyl</h3>
+      <p style="font-size:15.5px;"><strong>Matte finish.</strong> Peels off cleanly for a year or two. Perfect for wall quotes, window décor, and anything temporary or rented.</p>
+    </div>
+  </div>
+
+  <div class="note-box">
+    <div class="nb-label">Quick test</div>
+    Glossy and you want it to <em>last</em> → permanent. Matte and you might <em>remove</em> it → removable. When unsure for décor, removable saves your walls.
+  </div>
+
+  <h3>Transfer tape, step by step</h3>
+  <figure>
+    <div class="diagram">
+      <svg viewBox="0 0 640 170" role="img" aria-label="Four steps of using transfer tape to apply weeded vinyl">
+        <g font-family="Space Mono,monospace" font-size="10.5" fill="#2B2733">
+          <!-- 1 weed -->
+          <rect x="20" y="40" width="120" height="80" rx="6" fill="#3F9E6E" opacity="0.25"/>
+          <text x="80" y="58" text-anchor="middle">1 · WEED</text>
+          <path d="M50 95 l20 -20 l8 8 l-20 20 z" fill="#C4456B"/>
+          <text x="80" y="135" text-anchor="middle" fill="#5E5868" font-size="9">remove excess</text>
+          <!-- 2 tape on -->
+          <rect x="170" y="40" width="120" height="80" rx="6" fill="#fff" stroke="#E4DED3"/>
+          <text x="230" y="58" text-anchor="middle">2 · TAPE</text>
+          <rect x="185" y="68" width="90" height="40" fill="#2F8F83" opacity="0.18"/>
+          <path d="M200 95 l20 -20 l8 8 l-20 20 z" fill="#C4456B"/>
+          <text x="230" y="135" text-anchor="middle" fill="#5E5868" font-size="9">press tape down</text>
+          <!-- 3 lift -->
+          <rect x="320" y="40" width="120" height="80" rx="6" fill="#fff" stroke="#E4DED3"/>
+          <text x="380" y="58" text-anchor="middle">3 · LIFT</text>
+          <path d="M335 110 q 30 -40 70 -30" fill="none" stroke="#2F8F83" stroke-width="6" opacity="0.4"/>
+          <path d="M360 92 l20 -20 l8 8 l-20 20 z" fill="#C4456B"/>
+          <text x="380" y="135" text-anchor="middle" fill="#5E5868" font-size="9">peel at an angle</text>
+          <!-- 4 apply -->
+          <rect x="470" y="40" width="120" height="80" rx="6" fill="#2B2733"/>
+          <text x="530" y="58" text-anchor="middle" fill="#fff">4 · APPLY</text>
+          <path d="M510 95 l20 -20 l8 8 l-20 20 z" fill="#FBE9C7"/>
+          <text x="530" y="135" text-anchor="middle" fill="#5E5868" font-size="9">burnish + remove tape</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption>Weed → lay transfer tape → lift the design → set it on the surface and burnish, then peel the tape at a sharp angle.</figcaption>
+  </figure>
+
+  <h3>Layering vinyl</h3>
+  <p>For multi-color designs, apply colors in stages and line them up. Use a <strong>hinge method</strong>: tape the top edge down, flip up, peel the backing, and roll it down so layers register cleanly. Cut each color separately (one color per mat).</p>
+
+  <div class="tip">
+    <div class="tip-label">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="#C4456B"><path d="M12 2a7 7 0 0 0-4 12.7V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.3A7 7 0 0 0 12 2Zm-2 19a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-1h-4Z"/></svg>
+      Stephanie&rsquo;s Tip
+    </div>
+    <p>Weeding goes faster if you cut a tiny <strong>registration square</strong> in a corner of each layer (same spot on every color). Line the squares up when layering and your colors land perfectly — then weed the squares away at the end.</p>
+  </div>
+
+  <div class="checklist">
+    <div class="cl-head">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2F8F83" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>
+      Vinyl project checklist
+    </div>
+    <ul>
+      <li><span class="box"></span>Right vinyl chosen — permanent (lasting) or removable (temporary)</li>
+      <li><span class="box"></span>Material set correctly on the machine (<strong>do NOT mirror</strong> for vinyl)</li>
+      <li><span class="box"></span>Vinyl placed liner-side-down on the <span class="swatch" style="background:var(--mat-green)"></span>green mat</li>
+      <li><span class="box"></span>Test cut done — blade just scores the vinyl, not the backing</li>
+      <li><span class="box"></span>Weeded, taped, and surface is clean &amp; dry before applying</li>
+    </ul>
+  </div>
+
+  <div class="notes">
+    <div class="notes-label">Project notes</div>
+    <div class="lines"></div>
+  </div>
+</section>
+
+<!-- ============================ 5. HTV ============================ -->
+<section class="page">
+  <div class="sec-head">
+    <div class="sec-num">5</div>
+    <div class="titles"><p class="eyebrow">Heat-applied</p><h2>Heat Transfer Vinyl</h2></div>
+  </div>
+
+  <p class="lead">HTV (iron-on) bonds to fabric with heat. It has one rule beginners forget — and forgetting it ruins the shirt. So we&rsquo;ll start there.</p>
+
+  <h3>Mirroring — the one rule</h3>
+  <figure>
+    <div class="diagram">
+      <svg viewBox="0 0 640 170" role="img" aria-label="HTV must be mirrored and placed shiny side down on the mat">
+        <!-- normal -->
+        <rect x="40" y="40" width="150" height="90" rx="8" fill="#fff" stroke="#E4DED3" stroke-width="2"/>
+        <text x="115" y="95" text-anchor="middle" font-family="Fraunces,serif" font-size="34" fill="#C4456B">R</text>
+        <text x="115" y="150" text-anchor="middle" font-family="Space Mono,monospace" font-size="10" fill="#9E2F52">your design</text>
+
+        <path d="M205 85 h40" stroke="#2B2733" stroke-width="2" fill="none"/><polygon points="245,79 255,85 245,91" fill="#2B2733"/>
+        <text x="230" y="74" text-anchor="middle" font-family="Space Mono,monospace" font-size="10" fill="#2F8F83">mirror</text>
+
+        <!-- mirrored -->
+        <rect x="270" y="40" width="150" height="90" rx="8" fill="#3F9E6E" opacity="0.2" stroke="#3F9E6E" stroke-width="2"/>
+        <text x="345" y="95" text-anchor="middle" font-family="Fraunces,serif" font-size="34" fill="#2F8F83" transform="scale(-1,1)" transform-origin="345 95">R</text>
+        <text x="345" y="150" text-anchor="middle" font-family="Space Mono,monospace" font-size="10" fill="#2F8F83">cut on green mat</text>
+
+        <!-- shiny side note -->
+        <g font-family="Space Mono,monospace" font-size="10.5" fill="#2B2733">
+          <rect x="460" y="48" width="150" height="74" rx="8" fill="#FBE9C7" stroke="#E7B45A"/>
+          <text x="535" y="72" text-anchor="middle" fill="#9E2F52" font-size="11">SHINY SIDE</text>
+          <text x="535" y="88" text-anchor="middle" fill="#9E2F52" font-size="11">DOWN</text>
+          <text x="535" y="108" text-anchor="middle" fill="#5a4a28" font-size="9">carrier on the mat</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption>HTV is cut from the back, so you must <b>Mirror</b> the design and place it <b>shiny (carrier) side down</b> on the mat.</figcaption>
+  </figure>
+  <p>On the <em>Make It</em> screen, flip the <strong>Mirror</strong> toggle on for every HTV mat. If your letters come out backwards on the shirt, this is the step that was missed.</p>
+
+  <h3>Heat settings</h3>
+  <p>Heat, time, and pressure depend on your HTV brand <em>and</em> the fabric. These are typical starting points — always confirm with the official <strong>Cricut Heat Guide</strong> for your exact combo.</p>
+  <table>
+    <tr><th>Material</th><th>Temp (starting)</th><th>Time</th><th>Peel</th></tr>
+    <tr><td>Cricut Everyday Iron-On</td><td>~315&deg;F / 155&deg;C</td><td>~30 sec</td><td>Warm</td></tr>
+    <tr><td>Siser EasyWeed</td><td>~305&deg;F / 150&deg;C</td><td>~10–15 sec</td><td>Hot/Warm</td></tr>
+    <tr><td>Glitter / Holographic</td><td>~320&deg;F / 160&deg;C</td><td>~15–20 sec</td><td>Cold</td></tr>
+  </table>
+  <div class="note-box">
+    <div class="nb-label">Pressure &amp; prep</div>
+    Preheat the blank for a few seconds to flatten and dry it. Apply <strong>firm pressure</strong>. A heat press or EasyPress beats an iron for even, lasting bonds.
+  </div>
+
+  <h3>Layering HTV</h3>
+  <p>Press each color one at a time, lightest pressure-passes first. Between layers, do a short &ldquo;tack&rdquo; press (2–3 sec) rather than a full press, then do one final full press at the end. Avoid stacking more than a few layers — it gets stiff.</p>
+
+  <h3>Care instructions</h3>
+  <ul class="tight">
+    <li>Wait <strong>24 hours</strong> before the first wash.</li>
+    <li>Turn the garment <strong>inside out</strong>; wash cold, mild detergent.</li>
+    <li>Tumble dry low or hang dry. <strong>No bleach.</strong></li>
+    <li>Don&rsquo;t iron directly on the design — use a cloth or press inside-out.</li>
+  </ul>
+
+  <div class="tip">
+    <div class="tip-label">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="#C4456B"><path d="M12 2a7 7 0 0 0-4 12.7V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.3A7 7 0 0 0 12 2Zm-2 19a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-1h-4Z"/></svg>
+      Stephanie&rsquo;s Tip
+    </div>
+    <p>Tape a sticky note that says <strong>&ldquo;MIRROR?&rdquo;</strong> to your heat press. Ninety percent of ruined HTV projects are a forgotten mirror toggle — one glance saves a shirt and a sigh.</p>
+  </div>
+
+  <div class="checklist">
+    <div class="cl-head">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2F8F83" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>
+      HTV project checklist
+    </div>
+    <ul>
+      <li><span class="box"></span><strong>Mirror is ON</strong> for every HTV mat</li>
+      <li><span class="box"></span>HTV placed <strong>shiny side down</strong> on the <span class="swatch" style="background:var(--mat-green)"></span>green mat</li>
+      <li><span class="box"></span>Heat guide checked for this material + fabric</li>
+      <li><span class="box"></span>Blank preheated, design weeded</li>
+      <li><span class="box"></span>Carrier peeled at the right temp (warm/cold per type)</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================ 6. PRINT THEN CUT ============================ -->
+<section class="page">
+  <div class="sec-head">
+    <div class="sec-num">6</div>
+    <div class="titles"><p class="eyebrow">Full-color magic</p><h2>Print Then Cut Stickers</h2></div>
+  </div>
+
+  <p class="lead">Print Then Cut is where your Procreate art shines in full color: your home printer prints the design, then the Cricut reads registration marks and cuts neatly around it. Stickers, planner art, labels — all live here.</p>
+
+  <h3>Sticker paper &amp; waterproofing</h3>
+  <ul class="tight">
+    <li><strong>Matte / glossy sticker paper</strong> — the everyday choice; runs through an inkjet printer.</li>
+    <li><strong>Printable vinyl</strong> — more durable, slightly water-resistant.</li>
+    <li><strong>Waterproofing:</strong> inkjet ink is <em>not</em> waterproof on its own. Laminate the sheet or seal with a clear spray/cold laminate before cutting for water-safe stickers.</li>
+  </ul>
+
+  <h3>Bleed — kills the white edge</h3>
+  <figure>
+    <div class="diagram">
+      <svg viewBox="0 0 640 160" role="img" aria-label="Sticker without bleed showing a white edge versus with bleed">
+        <!-- no bleed -->
+        <text x="160" y="28" text-anchor="middle" font-family="Space Mono,monospace" font-size="11" fill="#9E2F52">BLEED OFF — white sliver</text>
+        <circle cx="160" cy="90" r="38" fill="#fff" stroke="#fff" stroke-width="8"/>
+        <circle cx="160" cy="90" r="34" fill="#C4456B"/>
+        <circle cx="160" cy="90" r="42" fill="none" stroke="#2B2733" stroke-dasharray="4 3"/>
+        <text x="160" y="150" text-anchor="middle" font-family="Space Mono,monospace" font-size="9" fill="#5E5868">cut line misses → white ring</text>
+        <!-- with bleed -->
+        <text x="480" y="28" text-anchor="middle" font-family="Space Mono,monospace" font-size="11" fill="#2F8F83">BLEED ON — color runs past</text>
+        <circle cx="480" cy="90" r="42" fill="#C4456B"/>
+        <circle cx="480" cy="90" r="34" fill="none" stroke="#2B2733" stroke-dasharray="4 3"/>
+        <text x="480" y="150" text-anchor="middle" font-family="Space Mono,monospace" font-size="9" fill="#5E5868">color extends under the cut line</text>
+      </svg>
+    </div>
+    <figcaption><b>Bleed</b> extends color slightly past the cut line so a tiny cut wobble never leaves a white halo. Leave it ON for stickers.</figcaption>
+  </figure>
+
+  <h3>Offset — the sticker border</h3>
+  <p>Want that classic white (or colored) outline around a sticker? Add an <strong>Offset</strong> in Design Space. It builds a slightly larger copy of your shape behind the art, which also becomes the new cut line.</p>
+
+  <h3>Calibration</h3>
+  <p>If your cuts land slightly off the printed edge, run <strong>Print Then Cut Calibration</strong> (in Design Space settings). You print a test sheet, the machine reads it, and it dials in the blade-to-print accuracy. Do this once on a new machine and any time cuts drift.</p>
+
+  <figure>
+    <div class="diagram">
+      <svg viewBox="0 0 640 150" role="img" aria-label="Printed sheet with black registration marks the machine scans before cutting">
+        <rect x="200" y="20" width="240" height="110" rx="8" fill="#fff" stroke="#E4DED3" stroke-width="2"/>
+        <!-- registration marks -->
+        <rect x="212" y="32" width="16" height="4" fill="#2B2733"/><rect x="212" y="32" width="4" height="16" fill="#2B2733"/>
+        <rect x="412" y="32" width="16" height="4" fill="#2B2733"/><rect x="424" y="32" width="4" height="16" fill="#2B2733"/>
+        <rect x="212" y="114" width="4" height="16" fill="#2B2733"/><rect x="212" y="126" width="16" height="4" fill="#2B2733"/>
+        <rect x="424" y="114" width="4" height="16" fill="#2B2733"/><rect x="412" y="126" width="16" height="4" fill="#2B2733"/>
+        <!-- stickers -->
+        <circle cx="280" cy="78" r="18" fill="#C4456B"/>
+        <rect x="320" y="60" width="36" height="36" rx="6" fill="#2F8F83"/>
+        <polygon points="390,60 408,96 372,96" fill="#6E54A0"/>
+        <text x="320" y="145" text-anchor="middle" font-family="Space Mono,monospace" font-size="10" fill="#5E5868">machine scans the corner marks, then cuts</text>
+      </svg>
+    </div>
+    <figcaption>Those black corner marks are how the Cricut knows exactly where your print landed. Keep them clean and unsmudged.</figcaption>
+  </figure>
+
+  <div class="tip">
+    <div class="tip-label">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="#C4456B"><path d="M12 2a7 7 0 0 0-4 12.7V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.3A7 7 0 0 0 12 2Zm-2 19a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-1h-4Z"/></svg>
+      Stephanie&rsquo;s Tip
+    </div>
+    <p>Print Then Cut struggles in dim light and on glossy paper because the sensor can&rsquo;t read the marks. Cut near a <strong>bright, even light</strong> and use matte sticker paper if scans keep failing.</p>
+  </div>
+
+  <div class="checklist">
+    <div class="cl-head">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2F8F83" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>
+      Sticker checklist
+    </div>
+    <ul>
+      <li><span class="box"></span>Saved as <strong>Print Then Cut</strong> on upload</li>
+      <li><span class="box"></span><strong>Bleed ON</strong> in the print dialog</li>
+      <li><span class="box"></span>Offset added if you want a border</li>
+      <li><span class="box"></span>Calibration done (or re-done if cuts drift)</li>
+      <li><span class="box"></span>Sticker paper set as the material; laminated if waterproof needed</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================ 7. PAPER CRAFTS ============================ -->
+<section class="page">
+  <div class="sec-head">
+    <div class="sec-num">7</div>
+    <div class="titles"><p class="eyebrow">Cardstock &amp; paper</p><h2>Paper Crafts</h2></div>
+  </div>
+
+  <p class="lead">Paper is forgiving, cheap to practice on, and where score lines and intricate cuts come in. Great for cards, tags, and dimensional flowers.</p>
+
+  <h3>Greeting cards</h3>
+  <p>The trick to a card that folds crisply is a <strong>score line</strong>, not a cut, down the fold. In Design Space, add a Score line and <strong>Attach</strong> it to the card shape so the machine scores and cuts in one pass.</p>
+  <figure>
+    <div class="diagram">
+      <svg viewBox="0 0 640 150" role="img" aria-label="A card shape with a dashed score line down the middle fold">
+        <rect x="180" y="25" width="280" height="100" rx="6" fill="#fff" stroke="#2B2733" stroke-width="2"/>
+        <line x1="320" y1="25" x2="320" y2="125" stroke="#2F8F83" stroke-width="2" stroke-dasharray="6 5"/>
+        <text x="320" y="16" text-anchor="middle" font-family="Space Mono,monospace" font-size="10" fill="#2F8F83">score line (fold)</text>
+        <text x="250" y="80" text-anchor="middle" font-family="Space Mono,monospace" font-size="10" fill="#5E5868">front</text>
+        <text x="390" y="80" text-anchor="middle" font-family="Space Mono,monospace" font-size="10" fill="#5E5868">inside</text>
+      </svg>
+    </div>
+    <figcaption>Score, don&rsquo;t cut, the fold. <b>Attach</b> the score line so it stays put.</figcaption>
+  </figure>
+
+  <h3>Gift tags</h3>
+  <p>Tiny and quick — perfect for using up cardstock scraps. Add a small circle, then <strong>Slice</strong> it out near the top for the string hole. Batch a whole mat full at once.</p>
+
+  <h3>Paper flowers</h3>
+  <p>Spiral-cut petals roll into roses; layered teardrop petals stack into blooms. Use <span class="swatch" style="background:var(--mat-green)"></span>green or <span class="swatch" style="background:var(--mat-purple)"></span>purple mat depending on cardstock weight, and a fresh blade for clean spirals.</p>
+
+  <div class="tip">
+    <div class="tip-label">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="#C4456B"><path d="M12 2a7 7 0 0 0-4 12.7V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.3A7 7 0 0 0 12 2Zm-2 19a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-1h-4Z"/></svg>
+      Stephanie&rsquo;s Tip
+    </div>
+    <p>For intricate paper cuts, turn the material setting to <strong>&ldquo;Cardstock — Intricate Cuts&rdquo;</strong> and use a <strong>brayer</strong> to press the paper fully onto the mat first. Lifting paper mid-cut is what tears delicate detail.</p>
+  </div>
+
+  <div class="checklist">
+    <div class="cl-head">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2F8F83" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>
+      Paper project checklist
+    </div>
+    <ul>
+      <li><span class="box"></span>Score lines added and <strong>Attached</strong> to the cut shape</li>
+      <li><span class="box"></span>Mat grip matched to paper weight</li>
+      <li><span class="box"></span>Paper pressed flat with a brayer / scraper</li>
+      <li><span class="box"></span>Fresh-ish blade for intricate cuts</li>
+      <li><span class="box"></span>Use the spatula to lift finished pieces off the mat</li>
+    </ul>
+  </div>
+
+  <div class="notes">
+    <div class="notes-label">Project notes</div>
+    <div class="lines"></div>
+  </div>
+</section>
+
+<!-- ============================ 8. LABELS ============================ -->
+<section class="page">
+  <div class="sec-head">
+    <div class="sec-num">8</div>
+    <div class="titles"><p class="eyebrow">Make it tidy</p><h2>Labels &amp; Organization</h2></div>
+  </div>
+
+  <p class="lead">Labels are the fastest way to feel like a Cricut wizard — small, useful, and quick to batch. Design a set in Procreate, then cut a whole sheet at once.</p>
+
+  <h3>Pantry labels</h3>
+  <p>Use <strong>permanent vinyl</strong> if jars get washed, or removable if you reorganize often. Matte black or white vinyl reads cleanest. Design all labels on one Procreate canvas, each word on its own layer or grouped, then Attach so spacing holds.</p>
+
+  <h3>Storage bins</h3>
+  <p>Bigger surfaces, bigger vinyl. Removable vinyl is friendlier here since bin contents change. For fabric bins, use HTV instead of adhesive vinyl.</p>
+
+  <h3>Custom decals</h3>
+  <p>Laptops, water bottles, mailboxes, light switches — anywhere a small permanent decal adds personality. This is your sweet spot for testing new Procreate designs at low material cost.</p>
+
+  <figure>
+    <div class="diagram">
+      <svg viewBox="0 0 640 150" role="img" aria-label="A sheet of identical pantry labels batched on one mat">
+        <rect x="120" y="20" width="400" height="110" rx="8" fill="#3F9E6E" opacity="0.15" stroke="#3F9E6E"/>
+        <g font-family="Fraunces,serif" font-size="13" fill="#2B2733" text-anchor="middle">
+          <rect x="140" y="38" width="110" height="32" rx="16" fill="#fff" stroke="#2B2733"/><text x="195" y="59">FLOUR</text>
+          <rect x="265" y="38" width="110" height="32" rx="16" fill="#fff" stroke="#2B2733"/><text x="320" y="59">SUGAR</text>
+          <rect x="390" y="38" width="110" height="32" rx="16" fill="#fff" stroke="#2B2733"/><text x="445" y="59">PASTA</text>
+          <rect x="140" y="80" width="110" height="32" rx="16" fill="#fff" stroke="#2B2733"/><text x="195" y="101">RICE</text>
+          <rect x="265" y="80" width="110" height="32" rx="16" fill="#fff" stroke="#2B2733"/><text x="320" y="101">OATS</text>
+          <rect x="390" y="80" width="110" height="32" rx="16" fill="#fff" stroke="#2B2733"/><text x="445" y="101">BEANS</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption>Batch a full set on one mat. <b>Attach</b> them all so the machine keeps your tidy grid instead of repacking it.</figcaption>
+  </figure>
+
+  <div class="tip">
+    <div class="tip-label">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="#C4456B"><path d="M12 2a7 7 0 0 0-4 12.7V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.3A7 7 0 0 0 12 2Zm-2 19a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-1h-4Z"/></svg>
+      Stephanie&rsquo;s Tip
+    </div>
+    <p>Keep a reusable Procreate &ldquo;label template&rdquo; file at your standard jar size. New pantry? Duplicate it, swap the words, export. You&rsquo;ll cut a fresh set in five minutes flat.</p>
+  </div>
+
+  <div class="checklist">
+    <div class="cl-head">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2F8F83" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>
+      Label batch checklist
+    </div>
+    <ul>
+      <li><span class="box"></span>All labels sized to the real surface</li>
+      <li><span class="box"></span>Whole set <strong>Attached</strong> to keep the layout</li>
+      <li><span class="box"></span>Permanent vs removable vinyl chosen for the use</li>
+      <li><span class="box"></span>Surface cleaned (alcohol wipe) before applying</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================ 9. TROUBLESHOOTING ============================ -->
+<section class="page">
+  <div class="sec-head">
+    <div class="sec-num">9</div>
+    <div class="titles"><p class="eyebrow">When it goes wrong</p><h2>Troubleshooting</h2></div>
+  </div>
+
+  <p class="lead">Almost every problem has a boringly simple cause. Find the symptom, try the fix in order, and you&rsquo;ll solve most issues without searching forums at midnight.</p>
+
+  <table>
+    <caption style="font-size:18px;">Quick-fix table</caption>
+    <tr><th style="width:30%;">Symptom</th><th>Likely cause &amp; fix</th></tr>
+    <tr><td><strong>White background appears</strong></td><td>You uploaded a JPEG or didn&rsquo;t remove the background. Re-export a <strong>transparent PNG</strong> (background OFF), or use Design Space&rsquo;s erase/remove-background on upload.</td></tr>
+    <tr><td><strong>Fuzzy / jagged edges</strong></td><td>Low DPI or a textured brush. Redesign at <strong>300 DPI</strong> with solid color and a hard-edge brush. For scaling freedom, vectorize to SVG.</td></tr>
+    <tr><td><strong>Cut at the wrong size</strong></td><td>Resized by eye. Type <strong>exact dimensions</strong> in Design Space; design at real size in Procreate so it imports correct.</td></tr>
+    <tr><td><strong>Cutting too deep</strong> (through backing)</td><td>Pressure too high or wrong material. Pick the exact material setting; nudge pressure to <strong>&ldquo;Less.&rdquo;</strong></td></tr>
+    <tr><td><strong>Not cutting through</strong></td><td>Dull blade, low pressure, or wrong setting. Swap/clean the blade, set pressure to <strong>&ldquo;More,&rdquo;</strong> run a test cut.</td></tr>
+    <tr><td><strong>Material slips / tears on mat</strong></td><td>Mat too sticky or not sticky enough. Refresh a worn mat (wash with water); de-tack a too-grippy mat by patting a clean cotton shirt. Use a <strong>brayer</strong> to seat material.</td></tr>
+    <tr><td><strong>Bluetooth won&rsquo;t connect</strong></td><td>Forget the device in iPad Settings and re-pair. Stay within ~10–15 ft, close and reopen Design Space, restart the machine.</td></tr>
+  </table>
+
+  <figure>
+    <div class="diagram">
+      <svg viewBox="0 0 640 130" role="img" aria-label="Test cut concept: a small shape cut first to check settings">
+        <rect x="40" y="25" width="200" height="80" rx="6" fill="#3F9E6E" opacity="0.18" stroke="#3F9E6E"/>
+        <circle cx="90" cy="65" r="16" fill="none" stroke="#C4456B" stroke-width="2"/>
+        <text x="150" y="60" font-family="Space Mono,monospace" font-size="11" fill="#2B2733">cut ONE small</text>
+        <text x="150" y="76" font-family="Space Mono,monospace" font-size="11" fill="#2B2733">test shape first</text>
+        <path d="M270 65 h40" stroke="#2B2733" stroke-width="2" fill="none"/><polygon points="310,59 320,65 310,71" fill="#2B2733"/>
+        <text x="470" y="55" font-family="Space Mono,monospace" font-size="11" fill="#2F8F83" text-anchor="middle">weeds clean + backing intact?</text>
+        <text x="470" y="78" font-family="Space Mono,monospace" font-size="11" fill="#2F8F83" text-anchor="middle">→ run the real cut</text>
+      </svg>
+    </div>
+    <figcaption>The <b>test cut</b> is your insurance policy. Thirty seconds here saves a whole sheet of wasted material.</figcaption>
+  </figure>
+
+  <div class="tip">
+    <div class="tip-label">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="#C4456B"><path d="M12 2a7 7 0 0 0-4 12.7V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.3A7 7 0 0 0 12 2Zm-2 19a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-1h-4Z"/></svg>
+      Stephanie&rsquo;s Tip
+    </div>
+    <p>When a cut fails, change <strong>one thing at a time</strong> — blade, then pressure, then mat — and test between each. Changing three at once means you never learn which one was the culprit.</p>
+  </div>
+
+  <div class="notes">
+    <div class="notes-label">My recurring issues &amp; what fixed them</div>
+    <div class="lines"></div>
+  </div>
+</section>
+
+<!-- ============================ 10. WORKFLOW ============================ -->
+<section class="page">
+  <div class="sec-head">
+    <div class="sec-num">10</div>
+    <div class="titles"><p class="eyebrow">Start to finish</p><h2>My Favorite Workflow</h2></div>
+  </div>
+
+  <p class="lead">Once it&rsquo;s a routine, a project flows in six moves. Tape this page near your workspace.</p>
+
+  <figure>
+    <div class="diagram">
+      <svg viewBox="0 0 640 360" role="img" aria-label="Six-step workflow from Procreate to applied product">
+        <defs>
+          <marker id="ar" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto"><polygon points="0,0 7,3 0,6" fill="#2B2733"/></marker>
+        </defs>
+        <g font-family="Fraunces,serif" font-size="16" fill="#fff">
+          <!-- 1 -->
+          <rect x="60" y="20" width="200" height="44" rx="10" fill="#C4456B"/><text x="80" y="48">1 · Procreate</text>
+          <!-- 2 -->
+          <rect x="380" y="20" width="200" height="44" rx="10" fill="#C4456B"/><text x="400" y="48">2 · Export PNG</text>
+          <!-- 3 -->
+          <rect x="380" y="100" width="200" height="44" rx="10" fill="#2F8F83"/><text x="400" y="128">3 · Design Space</text>
+          <!-- 4 -->
+          <rect x="60" y="100" width="200" height="44" rx="10" fill="#2F8F83"/><text x="80" y="128">4 · Cut</text>
+          <!-- 5 -->
+          <rect x="60" y="180" width="200" height="44" rx="10" fill="#6E54A0"/><text x="80" y="208">5 · Weed</text>
+          <!-- 6 -->
+          <rect x="380" y="180" width="200" height="44" rx="10" fill="#6E54A0"/><text x="400" y="208">6 · Apply</text>
+        </g>
+        <g stroke="#2B2733" stroke-width="2" fill="none" marker-end="url(#ar)">
+          <path d="M260 42 H372"/>
+          <path d="M480 64 V92"/>
+          <path d="M380 122 H268"/>
+          <path d="M160 144 V172"/>
+          <path d="M260 202 H372"/>
+        </g>
+        <g font-family="Space Mono,monospace" font-size="11" fill="#5E5868">
+          <text x="70" y="270">1 · Design at real size, 300 DPI, layers by color, crisp edges.</text>
+          <text x="70" y="290">2 · Background OFF → Share (or Share Layers) → PNG to Files.</text>
+          <text x="70" y="310">3 · Upload → Cut or Print Then Cut → size → Attach.</text>
+          <text x="70" y="330">4 · Material + mat set, test cut, then Make It.</text>
+          <text x="70" y="350">5 · Weed excess.   6 · Tape, apply, burnish, peel.</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption>Color-coded by stage: <b style="color:#C4456B">design</b>, <b style="color:#2F8F83">machine</b>, <b style="color:#6E54A0">finish</b>.</figcaption>
+  </figure>
+
+  <div class="checklist">
+    <div class="cl-head">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2F8F83" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>
+      Master pre-flight (every project)
+    </div>
+    <ul>
+      <li><span class="box"></span>Real size · 300 DPI · layers by color · crisp edges</li>
+      <li><span class="box"></span>Background off · exported transparent PNG</li>
+      <li><span class="box"></span>Correct mode: Cut / Print Then Cut</li>
+      <li><span class="box"></span>Mirror ON if HTV · pieces Attached</li>
+      <li><span class="box"></span>Material + mat matched · test cut passed</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================ 11. CHEAT SHEETS ============================ -->
+<section class="page">
+  <div class="sec-head">
+    <div class="sec-num">11</div>
+    <div class="titles"><p class="eyebrow">Tear-out references</p><h2>Cheat Sheets</h2></div>
+  </div>
+
+  <table>
+    <caption>PNG vs. SVG</caption>
+    <tr><th>&nbsp;</th><th>PNG</th><th>SVG</th></tr>
+    <tr><td><strong>Made of</strong></td><td>Pixels (raster)</td><td>Paths + nodes (vector)</td></tr>
+    <tr><td><strong>Scales without blur?</strong></td><td>No</td><td>Yes — infinitely</td></tr>
+    <tr><td><strong>From Procreate?</strong></td><td>Yes, directly</td><td>No — needs a converter (Inkscape, Affinity, Illustrator)</td></tr>
+    <tr><td><strong>Best for</strong></td><td>Quick cuts, Print Then Cut</td><td>Multi-color layered cuts, resizing, selling files</td></tr>
+  </table>
+
+  <table>
+    <caption>Mat guide</caption>
+    <tr><th>Mat</th><th>Grip</th><th>Use for</th></tr>
+    <tr><td><span class="swatch" style="background:var(--mat-blue)"></span>LightGrip (blue)</td><td>Light</td><td>Printer paper, vellum, thin paper</td></tr>
+    <tr><td><span class="swatch" style="background:var(--mat-green)"></span>StandardGrip (green)</td><td>Medium</td><td>Vinyl, iron-on, cardstock, sticker paper</td></tr>
+    <tr><td><span class="swatch" style="background:var(--mat-purple)"></span>StrongGrip (purple)</td><td>Strong</td><td>Thick cardstock, chipboard, leather</td></tr>
+    <tr><td><span class="swatch" style="background:var(--mat-pink)"></span>FabricGrip (pink)</td><td>Fabric</td><td>Fabric, felt, bonded materials</td></tr>
+  </table>
+
+  <table>
+    <caption>Blade guide</caption>
+    <tr><th>Blade</th><th>Reach for it when…</th></tr>
+    <tr><td><strong>Fine-Point</strong> (gold/silver)</td><td>Vinyl, iron-on, cardstock, paper, sticker paper — your default</td></tr>
+    <tr><td><strong>Deep-Point</strong> (black housing)</td><td>Thick cardstock, foam, magnet, chipboard</td></tr>
+    <tr><td><strong>Rotary</strong> (Maker)</td><td>Fabric and felt without backing</td></tr>
+    <tr><td><strong>Knife</strong> (Maker)</td><td>Thick stuff: balsa, heavy chipboard, leather</td></tr>
+    <tr><td><strong>Scoring stylus / wheel</strong></td><td>Fold lines for cards and boxes</td></tr>
+  </table>
+
+  <div class="two-col">
+    <table style="margin-bottom:0;">
+      <caption style="font-size:17px;">Common settings</caption>
+      <tr><th>Job</th><th>Set</th></tr>
+      <tr><td>Vinyl</td><td>No mirror</td></tr>
+      <tr><td>HTV / iron-on</td><td><strong>Mirror ON</strong>, shiny down</td></tr>
+      <tr><td>Won&rsquo;t cut through</td><td>Pressure → More</td></tr>
+      <tr><td>Cuts too deep</td><td>Pressure → Less</td></tr>
+      <tr><td>Stickers</td><td>Print Then Cut, bleed ON</td></tr>
+    </table>
+    <table style="margin-bottom:0;">
+      <caption style="font-size:17px;">Export targets</caption>
+      <tr><th>Want</th><th>Use</th></tr>
+      <tr><td>Single cut</td><td>PNG, bg off</td></tr>
+      <tr><td>Multi-color</td><td>Share Layers → PNGs</td></tr>
+      <tr><td>Full-color sticker</td><td>PNG → Print Then Cut</td></tr>
+      <tr><td>Resize forever</td><td>Convert to SVG</td></tr>
+      <tr><td>Resolution</td><td>Always 300 DPI</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ============================ 12. PRACTICE PROJECTS ============================ -->
+<section class="page">
+  <div class="sec-head">
+    <div class="sec-num">12</div>
+    <div class="titles"><p class="eyebrow">Build the skill</p><h2>Practice Projects</h2></div>
+  </div>
+
+  <p class="lead">Five projects in order of difficulty. Each one adds exactly one new skill, so by the last you&rsquo;ll have touched every part of the workflow.</p>
+
+  <div style="margin-top:10px;">
+    <h3><span class="pill">01</span>Simple decal</h3>
+    <p><strong>New skill:</strong> the full upload-to-apply loop. Draw a one-color shape (a heart, a word) in Procreate, cut in removable vinyl, apply to a notebook. No layering, no mirror.</p>
+
+    <h3><span class="pill">02</span>Layered decal</h3>
+    <p><strong>New skill:</strong> registration &amp; layering. Two- or three-color design, each color its own layer/mat. Use the registration-square trick to line them up on a tumbler.</p>
+
+    <h3><span class="pill">03</span>T-shirt</h3>
+    <p><strong>New skill:</strong> mirroring &amp; heat. Single-color HTV design — remember Mirror ON, shiny side down. Press per the heat guide, follow the 24-hour wash rule.</p>
+
+    <h3><span class="pill">04</span>Sticker sheet</h3>
+    <p><strong>New skill:</strong> Print Then Cut. A few full-color Procreate doodles, bleed on, add offsets for white borders, calibrate, print, cut. Laminate for water resistance.</p>
+
+    <h3><span class="pill">05</span>Greeting card</h3>
+    <p><strong>New skill:</strong> scoring &amp; paper. Cardstock card with an attached score line, a sliced detail, maybe a small layered vinyl or paper accent. Combines everything.</p>
+  </div>
+
+  <div class="checklist">
+    <div class="cl-head">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2F8F83" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>
+      Skill tracker
+    </div>
+    <ul>
+      <li><span class="box"></span>Project 1 — Simple decal &nbsp;·&nbsp; upload &amp; apply</li>
+      <li><span class="box"></span>Project 2 — Layered decal &nbsp;·&nbsp; registration</li>
+      <li><span class="box"></span>Project 3 — T-shirt &nbsp;·&nbsp; mirror &amp; heat</li>
+      <li><span class="box"></span>Project 4 — Sticker sheet &nbsp;·&nbsp; Print Then Cut</li>
+      <li><span class="box"></span>Project 5 — Greeting card &nbsp;·&nbsp; scoring</li>
+    </ul>
+  </div>
+
+  <div class="tip">
+    <div class="tip-label">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="#C4456B"><path d="M12 2a7 7 0 0 0-4 12.7V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.3A7 7 0 0 0 12 2Zm-2 19a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-1h-4Z"/></svg>
+      Stephanie&rsquo;s Tip
+    </div>
+    <p>Keep your first version of each project, flaws and all. Coming back in a month and seeing how far your weeding, layering, and pressing have come is the most motivating thing in this whole craft.</p>
+  </div>
+
+  <div class="notes">
+    <div class="notes-label">Next projects I want to try</div>
+    <div class="lines"></div>
+  </div>
+</section>
+
+<!-- ============================ BONUS: PROCREATE -> SVG ============================ -->
+<section class="page">
+  <div class="sec-head">
+    <div class="sec-num bonus">+</div>
+    <div class="titles"><p class="eyebrow" style="color:var(--teal);">Bonus chapter</p><h2>Procreate &rarr; SVG</h2></div>
+  </div>
+
+  <p class="lead">PNG works for most cuts. But when you want a design to <strong>scale to any size without fuzzing</strong>, keep colors perfectly separated, or sell your files, you want a vector <strong>SVG</strong>. Here&rsquo;s the honest path from Procreate to a clean cut file.</p>
+
+  <h3>Raster vs. vector — why it matters</h3>
+  <figure>
+    <div class="diagram">
+      <svg viewBox="0 0 640 170" role="img" aria-label="A pixel staircase curve versus a smooth vector path with nodes">
+        <!-- raster -->
+        <text x="160" y="26" text-anchor="middle" font-family="Space Mono,monospace" font-size="12" fill="#9E2F52">PNG — pixels (raster)</text>
+        <g fill="#C4456B" opacity="0.85">
+          <rect x="70" y="120" width="16" height="16"/><rect x="86" y="120" width="16" height="16"/>
+          <rect x="102" y="104" width="16" height="16"/><rect x="118" y="104" width="16" height="16"/>
+          <rect x="134" y="88" width="16" height="16"/><rect x="150" y="72" width="16" height="16"/>
+          <rect x="166" y="72" width="16" height="16"/><rect x="182" y="56" width="16" height="16"/>
+          <rect x="198" y="56" width="16" height="16"/><rect x="214" y="48" width="16" height="16"/>
+        </g>
+        <text x="160" y="158" text-anchor="middle" font-family="Space Mono,monospace" font-size="9" fill="#5E5868">enlarge → stair-steps show</text>
+        <line x1="320" y1="40" x2="320" y2="140" stroke="#E4DED3" stroke-dasharray="4 4"/>
+        <!-- vector -->
+        <text x="480" y="26" text-anchor="middle" font-family="Space Mono,monospace" font-size="12" fill="#2F8F83">SVG — paths + nodes (vector)</text>
+        <path d="M390 128 C 430 128, 450 70, 510 60 C 545 54, 560 52, 575 50" fill="none" stroke="#2F8F83" stroke-width="3"/>
+        <g fill="#fff" stroke="#2F8F83" stroke-width="2">
+          <circle cx="390" cy="128" r="5"/><circle cx="510" cy="60" r="5"/><circle cx="575" cy="50" r="5"/>
+        </g>
+        <text x="480" y="158" text-anchor="middle" font-family="Space Mono,monospace" font-size="9" fill="#5E5868">enlarge → stays razor-smooth</text>
+      </svg>
+    </div>
+    <figcaption>A PNG is a grid of pixels; an SVG is math. The blade follows vector paths <b>cleanly at any size</b>.</figcaption>
+  </figure>
+
+  <div class="note-box">
+    <div class="nb-label">The catch</div>
+    Procreate is a <strong>raster</strong> app — it can&rsquo;t export a true SVG by itself. You always pass through a converter. The good news: a free one does the job well.
+  </div>
+
+  <h3>The conversion flow</h3>
+  <figure>
+    <div class="diagram">
+      <svg viewBox="0 0 640 110" role="img" aria-label="Flow from Procreate PNG to a vector app trace to SVG to Design Space">
+        <g font-family="Space Mono,monospace" font-size="11">
+          <rect x="14" y="35" width="120" height="48" rx="9" fill="#fff" stroke="#C4456B" stroke-width="2"/>
+          <text x="74" y="56" text-anchor="middle" fill="#2B2733">Procreate</text>
+          <text x="74" y="71" text-anchor="middle" fill="#5E5868" font-size="9">PNG (bg off)</text>
+
+          <rect x="180" y="35" width="150" height="48" rx="9" fill="#fff" stroke="#2F8F83" stroke-width="2"/>
+          <text x="255" y="56" text-anchor="middle" fill="#2B2733">Trace to vector</text>
+          <text x="255" y="71" text-anchor="middle" fill="#5E5868" font-size="9">Inkscape / Affinity</text>
+
+          <rect x="376" y="35" width="110" height="48" rx="9" fill="#fff" stroke="#2F8F83" stroke-width="2"/>
+          <text x="431" y="60" text-anchor="middle" fill="#2B2733">Save .SVG</text>
+
+          <rect x="530" y="35" width="100" height="48" rx="9" fill="#2B2733"/>
+          <text x="580" y="56" text-anchor="middle" fill="#fff">Design</text>
+          <text x="580" y="70" text-anchor="middle" fill="#FBE9C7">Space</text>
+
+          <g stroke="#2B2733" stroke-width="2" fill="none">
+            <path d="M134 59 H176"/><path d="M330 59 H372"/><path d="M486 59 H526"/>
+          </g>
+          <polygon points="176,54 185,59 176,64" fill="#2B2733"/>
+          <polygon points="372,54 381,59 372,64" fill="#2B2733"/>
+          <polygon points="526,54 535,59 526,64" fill="#2B2733"/>
+        </g>
+      </svg>
+    </div>
+    <figcaption>Design Space imports <b>.SVG directly</b> — no Simple/Complex step, and your colors arrive pre-separated onto layers.</figcaption>
+  </figure>
+
+  <h3>Your software options</h3>
+  <table>
+    <tr><th>Tool</th><th>Cost</th><th>Notes</th></tr>
+    <tr><td><strong>Inkscape</strong></td><td>Free</td><td>The classic crafter route. Desktop only. Reliable <em>Trace Bitmap</em> tool.</td></tr>
+    <tr><td><strong>Affinity Designer</strong></td><td>Free (as of 2026)</td><td>Now free, with a basic trace and SVG/DXF export — a strong no-subscription pick.</td></tr>
+    <tr><td><strong>Silhouette Studio</strong></td><td>Designer ed. paid</td><td>Great trace tool; note the free Basic edition can&rsquo;t <em>export</em> SVG.</td></tr>
+    <tr><td><strong>Adobe Illustrator</strong></td><td>Subscription</td><td>The pro standard. <em>Image Trace</em> → Expand → export SVG.</td></tr>
+  </table>
+
+  <h3>Free path, step by step (Inkscape)</h3>
+  <ol>
+    <li>In Procreate, export your design as a <strong>PNG with the background off</strong> (Share &rarr; Share Layers &rarr; PNG for multi-color).</li>
+    <li>Open Inkscape on your computer and <strong>drag the PNG in</strong>; click OK on the import pop-up.</li>
+    <li>Select the image, then go to <strong>Path &rarr; Trace Bitmap</strong>. Adjust the threshold slider until the preview matches your shape, then apply.</li>
+    <li>Delete the original raster image left underneath the new traced vector.</li>
+    <li><em>(Optional but worth it)</em> Select the path and choose <strong>Path &rarr; Simplify</strong> to reduce node clutter — fewer nodes means smoother cuts and easier weeding.</li>
+    <li><strong>File &rarr; Save As &rarr; SVG.</strong> Move it to your iPad (iCloud / Files), then Upload in Design Space.</li>
+  </ol>
+
+  <h3>When you actually need SVG (and when you don&rsquo;t)</h3>
+  <div class="two-col">
+    <div>
+      <h4 style="color:var(--teal);">Reach for SVG</h4>
+      <ul class="tight" style="font-size:15px;">
+        <li>Multi-color layered designs</li>
+        <li>Anything you&rsquo;ll resize a lot</li>
+        <li>Files you plan to sell or reuse</li>
+      </ul>
+    </div>
+    <div>
+      <h4 style="color:var(--berry-deep);">PNG is plenty</h4>
+      <ul class="tight" style="font-size:15px;">
+        <li>A single simple silhouette</li>
+        <li>Any Print Then Cut sticker</li>
+        <li>Quick one-off projects</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="tip">
+    <div class="tip-label">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="#C4456B"><path d="M12 2a7 7 0 0 0-4 12.7V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.3A7 7 0 0 0 12 2Zm-2 19a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-1h-4Z"/></svg>
+      Stephanie&rsquo;s Tip
+    </div>
+    <p>The cleaner your Procreate lines, the cleaner the trace. Every bump becomes an extra node. Draw with a <strong>monoline brush</strong>, keep edges crisp, and run <strong>Simplify</strong> after tracing — your future weeding self will thank you.</p>
+  </div>
+
+  <div class="checklist">
+    <div class="cl-head">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2F8F83" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>
+      Vectorizing checklist
+    </div>
+    <ul>
+      <li><span class="box"></span>PNG exported with background OFF</li>
+      <li><span class="box"></span>Traced to a vector path (Trace Bitmap / Image Trace)</li>
+      <li><span class="box"></span>Original raster deleted underneath</li>
+      <li><span class="box"></span>Path simplified to cut node count</li>
+      <li><span class="box"></span>Saved as <strong>.SVG</strong> and uploaded to Design Space</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================ PROJECT LOG ============================ -->
+<section class="page">
+  <div class="sec-head">
+    <div class="sec-num bonus">&#9998;</div>
+    <div class="titles"><p class="eyebrow" style="color:var(--teal);">Photocopy this page</p><h2>Project Log</h2></div>
+  </div>
+
+  <p class="lead">Settings that worked are gold. Fill one out per project so the next time you cut that material, you already know the answer. Copy the blank page as many times as you like.</p>
+
+  <div class="field-row">
+    <div class="field"><span class="flabel">Project name</span><div class="fline"></div></div>
+    <div class="field"><span class="flabel">Date</span><div class="fline"></div></div>
+  </div>
+
+  <div class="field-row thirds">
+    <div class="field"><span class="flabel">Material</span><div class="fline"></div></div>
+    <div class="field"><span class="flabel">Mat used</span><div class="fline"></div></div>
+    <div class="field"><span class="flabel">Blade</span><div class="fline"></div></div>
+  </div>
+
+  <div class="field-row thirds">
+    <div class="field"><span class="flabel">Finished size</span><div class="fline"></div></div>
+    <div class="field"><span class="flabel">DS material setting</span><div class="fline"></div></div>
+    <div class="field"><span class="flabel">Pressure</span><div class="fline"></div></div>
+  </div>
+
+  <div class="field" style="margin-bottom:12px;">
+    <span class="flabel">Settings flags</span>
+    <div class="checkrow" style="margin-top:4px;">
+      <span class="opt"><span class="obox"></span> Mirrored (HTV)</span>
+      <span class="opt"><span class="obox"></span> Bleed on (sticker)</span>
+      <span class="opt"><span class="obox"></span> Offset added</span>
+      <span class="opt"><span class="obox"></span> Test cut passed</span>
+      <span class="opt"><span class="obox"></span> File: PNG / SVG</span>
+    </div>
+  </div>
+
+  <hr class="log-rule">
+
+  <div class="field-row">
+    <div class="field"><span class="flabel">Heat / press settings (if HTV)</span><div class="fline"></div></div>
+    <div class="field"><span class="flabel">Weeding difficulty (1&ndash;5)</span><div class="fline"></div></div>
+  </div>
+
+  <div class="field"><span class="flabel">Result — what worked</span><div class="fbox"></div></div>
+  <div class="field"><span class="flabel">What I&rsquo;d change next time</span><div class="fbox"></div></div>
+
+  <div class="tip" style="margin-top:18px;">
+    <div class="tip-label">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="#C4456B"><path d="M12 2a7 7 0 0 0-4 12.7V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.3A7 7 0 0 0 12 2Zm-2 19a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-1h-4Z"/></svg>
+      Stephanie&rsquo;s Tip
+    </div>
+    <p>Snap a photo of the finished piece next to its filled-in log. After a dozen projects you&rsquo;ll have a personal settings library worth more than any generic guide online.</p>
+  </div>
+</section>
+
+</body>
+</html>
